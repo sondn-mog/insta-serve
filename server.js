@@ -13,6 +13,9 @@ const cors = (req, res, next) => {
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 app.use(cors);
+app.get('/test', (req, res) => {
+    res.send({status: "ok"});
+})
 app.use('/user', userRouter); // wrap url in /user/
 
 app.listen(config.port, () => {
